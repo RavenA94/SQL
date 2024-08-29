@@ -1,0 +1,20 @@
+-- Write a SQL query that orders the items by price.
+SELECT item_name, price
+FROM superstore
+ORDER BY price;
+
+-- Write a SQL query that shows the SUM of price for Electronics.
+SELECT SUM (price)
+FROM superstore
+WHERE category = 'Electronics';
+
+-- Write a SQL query that shows the items in the category Kitchen Supplies ordered by price from greatest to least.
+SELECT item_name, price
+FROM superstore
+WHERE category = 'Kitchen Supplies'
+ORDER BY price desc;
+
+-- How many Non-Stick Baking Sets are in stock?
+SELECT stock_quantity
+FROM superstore
+WHERE item_name = 'Non-Stick Baking Set';
