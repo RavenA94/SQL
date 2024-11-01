@@ -1,4 +1,32 @@
---What is the of revenue for the technology industry?
+--What is the of revenue for the Technology industry?
 SELECT SUM (revenue)
 FROM fortune_companies
 WHERE industry='Technology';
+
+--Which companies in the Healthecare industry have paid time off days of at least 15, and maternity leave weeks of at least 6?
+SELECT company_name, paid_time_off_days, maternity_leave_weeks
+FROM fortune_companies
+WHERE industry = 'Healthcare'
+AND paid_time_off_days>=15
+AND maternity_leave_weeks>=6;
+
+--Which industries have an average revenue of at least $300 billion, and what are their avg revenues?
+SELECT industry, ROUND(AVG(revenue), 1) as avg_revenue_billions
+FROM fortune_companies
+GROUP BY industry
+HAVING  avg_revenue_billions>=300;
+
+--Write a sql that shows the Energy industry employees listed from greatest to least.
+SELECT company_name, employees
+FROM fortune_companies
+WHERE industry = 'Energy'
+ORDER BY employees desc;
+
+--Assign all the companies in the Technology industry as "family oriented workplace", "acceptable", or "abysmal", based on the paid_time_off_days.
+SELECT company_name
+,CASE WHEN paid_time_off_days>=17 THEN 'family oriented workplace'
+WHEN paid_time_off_days>=12 THEN 'acceptable'
+ELSE 'abysmal'
+END as family_oriented
+FROM fortune_companies
+WHERE industry = 'Technology';
