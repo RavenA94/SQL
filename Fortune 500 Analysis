@@ -1,0 +1,4 @@
+--What is the of revenue for the technology industry?
+SELECT SUM (revenue)
+FROM fortune_companies
+WHERE industry='Technology';
